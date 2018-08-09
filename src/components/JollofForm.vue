@@ -9,6 +9,7 @@
             <input 
               type="radio"
               name="jollofTypes"
+              :value="jollof"
               :checked="jollof === defaultJollof"
             >
             <span>{{ jollof }}</span>
