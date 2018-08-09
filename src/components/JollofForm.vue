@@ -1,8 +1,8 @@
 <template>
   <div>
     <h2>What jollofin at? Pick the best Jollof in the land.</h2>
-    <form name="jollof-wars" method="post" netlify-honeypot="bot-field" netlify>
-      <input type="hidden" name="bot-field" value="jollof-wars" />
+    <form method="post" netlify-honeypot="bot-field" netlify>
+      <input type="hidden" name="form-name" value="jollof-wars" />
       <ul>
         <li v-for="jollof in jollofTypes">
           <label>
