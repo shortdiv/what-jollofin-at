@@ -1,5 +1,5 @@
 /* Triggered when a form submission is posted to your site. */
-import initDB from '../../utils/storage'
+var initDB = require('../../utils/storage')
 
 exports.handler = function(event, context, callback) {
   var db = initDB()
