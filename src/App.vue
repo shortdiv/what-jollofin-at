@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <JollofForm></JollofForm>
+    <router-view>
+      <JollofForm></JollofForm>
+    </router-view>
   </div>
 </template>
 
