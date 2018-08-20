@@ -8,7 +8,7 @@
           <label>
             <input 
               type="radio"
-              name="jollofTypes"
+              name="jollof"
               :value="jollof"
               :checked="jollof === form.chosenRice"
               @input="ev => form.chosenRice = ev.target.value"
