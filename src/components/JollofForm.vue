@@ -29,7 +29,7 @@
       return {
         jollofTypes: ['Ghanaian Jollof', 'Nigerian Jollof', 'Senegal Jollof'],
         form: {
-          chosenRice: 'Senegal Jollof'
+          chosenRice: "Senegal Jollof"
         },
       }
     },
@@ -44,10 +44,10 @@
       handleSubmit () {
         fetch('/', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: this.encode({
             'form-name': 'jollof-wars',
-            ...this.form
+            'JollofTypes': this.form.chosenRice
           })
         })
         .then(() => {
