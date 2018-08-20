@@ -1,16 +1,17 @@
 <template>
   <div>
     <h2>What jollofin at? Pick the best Jollof in the land.</h2>
-    <form method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+    <form method="post" data-netlify="true" data-netlify-honeypot="bot-field" @submit.prevent="handleSubmit">
       <input type="hidden" name="form-name" value="jollof-wars" />
       <ul>
-        <li v-for="jollof in jollofTypes">
+        <li v-for="(jollof, index) in jollofTypes" :key="index">
           <label>
             <input 
               type="radio"
               name="jollofTypes"
               :value="jollof"
-              :checked="jollof === defaultJollof"
+              :checked="jollof === form.chosenRice"
+              @input="ev => form.chosenRice = ev.target.value"
             >
             <span>{{ jollof }}</span>
           </label>
@@ -27,7 +28,28 @@
     data () {
       return {
         jollofTypes: ['Ghanaian Jollof', 'Nigerian Jollof', 'Senegal Jollof'],
-        defaultJollof: 'Senegal Jollof'
+        form: {
+          chosenRice: 'Senegal Jollof'
+        },
+      }
+    },
+    mounted () {
+    },
+    methods: {
+      encode (data) {
+        return Object.keys(data)
+          .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+          .join('&')
+      },
+      handleSubmit () {
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: this.encode({
+            'form-name': 'jollof-wars',
+            ...this.form
+          })
+        })
       }
     }
   }
