@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>What jollofin at? Pick the best Jollof in the land.</h2>
-    <form method="post" data-netlify="true" data-netlify-honeypot="bot-field" @submit.prevent="handleSubmit">
+    <form name="jollof-wars" method="post" data-netlify="true" data-netlify-honeypot="bot-field" @submit.prevent="handleSubmit">
       <input type="hidden" name="form-name" value="jollof-wars" />
       <ul>
         <li v-for="(jollof, index) in jollofTypes" :key="index">
@@ -47,7 +47,7 @@
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: this.encode({
             'form-name': 'jollof-wars',
-            'JollofTypes': this.form.chosenRice
+            'jollof': this.form.chosenRice
           })
         })
         .then(() => {
