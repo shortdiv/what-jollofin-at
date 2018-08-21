@@ -47,7 +47,7 @@
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: this.encode({
             'form-name': 'jollof-wars',
-            'jollofTypes': this.form.chosenRice
+            'jollof Types': this.form.chosenRice
           })
         })
         .then(() => {
