@@ -6,9 +6,9 @@
       <ul>
         <li v-for="(jollof, index) in jollofTypes" :key="index">
           <label>
-            <input 
+            <input
               type="radio"
-              name="jollof"
+              name="jollofTypes"
               :value="jollof"
               :checked="jollof === form.chosenRice"
               @input="ev => form.chosenRice = ev.target.value"
@@ -47,7 +47,7 @@
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: this.encode({
             'form-name': 'jollof-wars',
-            'jollof': this.form.chosenRice
+            'jollofTypes': this.form.chosenRice
           })
         })
         .then(() => {
