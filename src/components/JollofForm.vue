@@ -8,7 +8,7 @@
           <label>
             <input
               type="radio"
-              name="jollofTypes"
+              name="jollof"
               :value="jollof"
               :checked="jollof === form.chosenRice"
               @input="ev => form.chosenRice = ev.target.value"
@@ -47,7 +47,7 @@
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: this.encode({
             'form-name': 'jollof-wars',
-            'jollof Types': this.form.chosenRice
+            'jollof': this.form.chosenRice
           })
         })
         .then(() => {
